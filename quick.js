@@ -6,19 +6,15 @@ const { Sequelize, Model, DataTypes } = require("sequelize");
 // });
 
 // Option 2: Passing parameters separately (other dialects)
+// const sequelize = new Sequelize("litedb", "devuser", "devpass", {
+//   host: "localhost",
+//   dialect: "mariadb",
+// });
+
 const sequelize = new Sequelize("litedb", "devuser", "devpass", {
   host: "localhost",
-  dialect: "mariadb",
+  dialect: "postgres",
 });
-
-// class User extends Model {}
-// User.init(
-//   {
-//     username: DataTypes.STRING,
-//     birthday: DataTypes.DATE,
-//   },
-//   { sequelize, modelName: "user" }
-// );
 
 const initModels = require("./models/init-models")
 initModels(sequelize);
